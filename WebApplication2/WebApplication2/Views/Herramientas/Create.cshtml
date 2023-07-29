@@ -1,0 +1,63 @@
+﻿
+@model Herramienta
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary"> Añadir Herramienta</h2>
+            <hr/>
+        </div>
+        <div class="mb-3">
+            <label asp-for="TipoHerramienta">Herramienta: </label>
+            <input asp-for="TipoHerramienta" type="text" class="form-control"  placeholder="Herramienta">
+            <span asp-validation-for="TipoHerramienta" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Disponibilidad">Disponibilidad</label>
+            
+            <select name="Disponibilidad" asp-for="Disponibilidad" id="Disponibilidad">
+                <option value="true">Disponible</option>
+                <option value="false"> No Disponible</option>
+            </select>
+            <span asp-validation-for="Disponibilidad" class="text-danger"></span>
+           
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="NombreReservante"> Nombre del poseedor</label>
+            <input asp-for="NombreReservante" type="text" class="form-control" placeholder="Nombre del poseedor">
+            <span asp-validation-for="NombreReservante" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ApellidoReservante">Apellido del poseedor</label>
+            <input asp-for="ApellidoReservante" type="text" class="form-control" placeholder="Apellido del poseedor">
+            <span asp-validation-for="ApellidoReservante" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Dni">DNI</label>
+            <input asp-for="Dni" type="text" class="form-control" placeholder="DNI del poseedor">
+            <span asp-validation-for="Dni" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Direccion">Dirección</label>
+            <input asp-for="Direccion" type="text" class="form-control" placeholder="Direccion del poseedor">
+            <span asp-validation-for="Direccion" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a asp-controller="Herramientas" asp-action="Index" class="btn btn-secondary">Volver</a>
+
+    </div>
+
+
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+     
+}
+

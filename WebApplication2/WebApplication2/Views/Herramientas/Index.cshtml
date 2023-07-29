@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Herramienta>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container p-3">
+    <div class="row">
+
+    <div class="col-6"><h2 class="text-primary">Banco de Herramientas</h2></div>
+    <div class="col-6 text-end"> <a asp-controller="Herramientas" asp-action="Create" class="btn btn-success">Añadir</a></div> 
+    </div>
+
+
+
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Herramienta: 
+            </th>
+            <th>
+                Disponibilidad:
+            </th>
+            <th>
+                Nombre:
+            </th>
+            <th>
+                Apellido:
+            </th>
+            <th>
+                DNI:
+            </th>
+            <th>
+                Dirección:
+            </th>
+            <th>
+                
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var herramienta in Model)
+        {
+            <tr>
+                <td>
+                    @herramienta.TipoHerramienta
+                </td>
+                <td>
+                    @((herramienta.Disponibilidad)? "Disponible": "No Disponible")
+                </td>
+                <td>
+                    @herramienta.NombreReservante
+                </td>
+                <td>
+                    @herramienta.ApellidoReservante
+                </td>
+                <td>
+                    @herramienta.Dni
+                </td>
+                <td>
+                @herramienta.Direccion
+                </td>
+                <td>
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="Herramientas" asp-action="Edit" asp-route-id="@herramienta.Id" class="btn btn-warning">Editar</a>
+                            <a asp-controller="Herramientas" asp-action="Delete" asp-route-id="@herramienta.Id" class="btn btn-danger">Borrar</a>
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+</div>
